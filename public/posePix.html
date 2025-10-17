@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>posePix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+    <style>
+      .pinyon-script-regular {
+      font-family: "Pinyon Script", cursive;
+      font-weight: 400;
+      font-style: normal;
+      }
+    </style>
+</head>
+<body class="min-h-screen bg-[url('/static/bg3.png')] bg-cover bg-center bg-no-repeat">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center px-8 py-4 bg-[#f8f8f7] shadow-md">
+        <h1 class="text-xl font-bold">📸PosePix</h1>
+        <a href="/about" class="text-lg hover:text-[#550b14] transition">About Us</a>
+    </nav>
+
+    <div class="flex flex-col md:flex-row justify-center items-start gap-40 p-10">
+
+      <div class="flex flex-col items-center mt-10">
+        <!-- 2 Poses -->
+        <div id="pose-2" class="relative hidden bg-[#9D8A7C]/50 h-[600px] flex flex-col w-[350px] p-4 mx-auto">
+          <div class="pose-slot mb-4">
+            <img class="pose-image w-full h-60 object-cover" />
+          </div>
+          <div class="pose-slot">
+            <img class="pose-image w-full h-60 object-cover" />
+          </div>
+          <div class="text-center text-white mt-4 font-serif">
+            <h2 class="text-4xl font-bold pinyon-script-regular">PosePix</h2>
+            <p id="dateText-2"></p>
+          </div>
+        </div>
+
+        <!-- 3 Poses -->
+        <div id="pose-3" class="relative hidden bg-[#9D8A7C]/50 h-[880px] p-4 w-[330px] mx-auto">
+          <div class="pose-slot mb-4">
+            <img class="pose-image w-full h-60 object-cover" />
+          </div>
+          <div class="pose-slot mb-4">
+            <img class="pose-image w-full h-60 object-cover" />
+          </div>
+          <div class="pose-slot">
+            <img class="pose-image w-full h-60 object-cover" />
+          </div>
+          <div class="text-center text-white mt-4 font-serif">
+            <h2 class="text-3xl font-bold pinyon-script-regular">PosePix</h2>
+            <p id="dateText-3"></p>
+          </div>
+        </div>
+
+        <!-- 4 Poses -->
+        <div id="pose-4" class="relative hidden bg-[#9D8A7C]/50 h-[1150px] p-4 w-[330px] mx-auto">
+          <div class="pose-slot mb-4">
+            <img class="pose-image w-full h-60 object-cover" />
+          </div>
+          <div class="pose-slot mb-4">
+            <img class="pose-image w-full h-60 object-cover" />
+          </div>
+          <div class="pose-slot mb-4">
+            <img class="pose-image w-full h-60 object-cover" />
+          </div>
+          <div class="pose-slot">
+            <img class="pose-image w-full h-60 object-cover" />
+          </div>
+          <div class="text-center text-white mt-4 font-serif">
+            <h2 class="text-4xl font-bold pinyon-script-regular">PosePix</h2>
+            <p id="dateText-4"></p>
+          </div>
+        </div>
+
+      <!-- 6 Poses -->
+      <div id="pose-6" class="relative hidden bg-[#9D8A7C]/50 h-[770px] p-4 w-[530px] mx-auto">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="pose-slot">
+            <img class="pose-image w-full h-52 object-cover" />
+          </div>
+          <div class="pose-slot">
+            <img class="pose-image w-full h-52 object-cover" />
+          </div>
+          <div class="pose-slot">
+            <img class="pose-image w-full h-52 object-cover" />
+          </div>
+          <div class="pose-slot">
+            <img class="pose-image w-full h-52 object-cover" />
+          </div>
+          <div class="pose-slot">
+            <img class="pose-image w-full h-52 object-cover" />
+          </div>
+          <div class="pose-slot">
+            <img class="pose-image w-full h-52 object-cover" />
+          </div>
+        </div>
+        <div class="text-center text-white mt-4 font-serif">
+          <h2 class="text-4xl font-bold pinyon-script-regular">PosePix</h2>
+          <p id="dateText-6"></p>
+        </div>
+      </div>
+      <p class="pinyon-script-regular mt-10 text-3xl font-bold mb-4 text-black">Oops! Don’t like that sticker? Double-click to remove it.</p>
+      </div>
+
+      <!-- Right: Controls -->
+    <div class="flex flex-col justify-between p-6 space-y-6 mt-20">
+
+      <!-- Background Selection -->
+      <div>
+        <h3 class="pinyon-script-regular text-3xl font-bold mb-4 text-black">Background</h3>
+        <div id="bg-btns" class="grid grid-cols-3 gap-3">
+          <button class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg" data-color='#e6dbdd' >gainsboro</button>
+          <button class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg" data-color="#B3A696">Taupe</button>
+          <button class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg" data-color="#7A6B5E">Vintage Coin</button>
+          <button class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg" data-color="#844F59">Dark Pink</button>
+          <button class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg" data-color="#6A3742">Dimgray</button>
+          <button class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg" data-color="#48252F">Plum Wine</button>
+          <button class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg" data-color="#3D0A05">Dark Red</button>
+          <button class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg" data-color="#292E1E">Pine Tree</button>
+          <button class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg" data-color="#121314">Carbon black</button>
+          <p class="p-1">Pick on your own:</p>
+          <input
+            type="color"
+            id="custom-color"
+            value="#ffffff"
+            class="w-10 h-10 p-0 border-2 border-gray-300 rounded-lg cursor-pointer"
+            title="Pick any color"
+          />
+        </div>
+      </div>
+
+      <!-- Filters Section -->
+      <div>
+        <h3 class="pinyon-script-regular text-3xl font-bold mb-4 text-black">Stickers</h3>
+        <div id="stickerBtns" class="grid grid-cols-6 gap-3">
+          <button><img src="/static/lil_hearts.png" alt="lil hearts" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/cat ears.png" alt="cat Ears" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/confetti.png" alt="confetti" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/head hearts.png" alt="head hearts" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/bow.png" alt="bow" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/rabit_kawaii.png" alt="rabit_kawaii" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/peachblush.png" alt="peachblush" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/pixelstars.png" alt="pixelstars" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/stars.png" alt="stars" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/thug.png" alt="thug" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/onepieceface.png" alt="onepieceface" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/onepiecelost.png" alt="onepiecelost" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/shinback.png" alt="shinback" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/shinchan904running.png" alt="shinchan904running" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/shinchanpeacepos.png" alt="shinchanpeacepos" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/sincat.png" alt="sincat" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/Umaru-chan Anime.png" alt="Umaru-chan Anime" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/Umaru-changaming.png" alt="Umaru-changaming" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/Umaru-chanlayed.png" alt="Umaru-chanlayed" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/Umaru-chansitting.png" alt="Umaru-chansitting" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/girlwhijab.png" alt="girlwhijab" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+          <button><img src="/static/couple.png" alt="couple" class="w-16 h-16 object-contain bg-gray-200 hover:bg-gray-300 p-2 rounded-lg"/></button>
+
+        </div>
+      </div>
+
+      <!-- download options -->
+      <div class="flex justify-center gap-4 m-20">
+        <button id="downloadBtn" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-black rounded-lg shadow">Download</button>
+      </div>
+
+    </div>
+
+    <!-- Script -->
+     <script src="./js/posePix.js"></script>
+</body>
+</html>

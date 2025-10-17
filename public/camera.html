@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+
+ <style>
+    .pinyon-script-regular {
+    font-family: "Pinyon Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    }
+</style>
+</head>
+<body class="min-h-screen bg-[url('/static/bg5.png')] text-white bg-cover bg-center bg-no-repeat">
+
+  <!-- ✅ Navbar -->
+  <nav class="flex justify-between items-center px-8 py-4 bg-[#f8f8f7] shadow-md">
+    <h1 class="text-xl font-bold text-gray-900">📸PosePix</h1>
+    <a href="/about" class="text-lg text-gray-700 hover:text-[#550b14] transition">About Us</a>
+  </nav>
+  
+
+
+  <!-- ✅ Main Section -->
+  <main class="flex flex-row m-20 ml-20 gap-20 justify-between">
+    
+    <!-- Left: Video + Capture button -->
+    <div class="flex flex-col items-center gap-4">
+      <h3 class="pinyon-script-regular text-3xl font-bold">Get ready—set the timer and strike pose after pose!</h3>
+
+      <!-- Video + Countdown overlay -->
+      <div class="relative">
+        <!-- Video Stream -->
+        <video id="video" autoplay playsinline 
+          class="w-100 h-100 bg-black rounded-lg shadow scale-x-[-1]">
+        </video>
+
+        <!-- Countdown Overlay -->
+        <div id="countdown" 
+            class="absolute inset-0 flex items-center justify-center text-6xl font-bold text-white/60">
+        </div>
+      </div>
+
+      <!-- Capture Button -->
+      <div class="flex items-center justify-center gap-4 mt-4">
+      <button id="captureBtn" 
+        class="px-6 py-2 bg-red-800 rounded-lg hover:bg-red-600 transition ">
+        Capture
+      </button>
+
+      <label class="mt-4 block text-sm">Select Timer:</label>
+      <select id="timerSelect" class="text-black rounded px-2 py-1">
+        <option value="3">3 sec</option>
+        <option value="5">5 sec</option>
+        <option value="10">10 sec</option>
+      </select>
+      </div>
+    </div>
+
+    <!-- Right: Captured Photos -->
+    <div class="flex flex-col items-center space-y-8">
+      <div>
+        <h4 class="pinyon-script-regular text-2xl font-bold">Double-click on the photo if you’d like to retake it.</h4>
+      </div>
+      <!-- 2 Poses -->
+    <div id="pose-2" class="hidden bg-[#9D8A7C]/50 h-[600px] flex flex-col w-[350px] p-4 mx-auto">
+      <div class="pose-slot mb-4">
+        <img class="pose-image w-full h-60 object-cover" />
+      </div>
+      <div class="pose-slot">
+        <img class="pose-image w-full h-60 object-cover" />
+      </div>
+      <div class="text-center text-white mt-4 font-serif">
+        <h2 class="text-xl italic">PosePix</h2>
+        <p id="dateText-2"></p>
+      </div>
+    </div>
+
+    <!-- 3 Poses -->
+    <div id="pose-3" class="hidden bg-[#9D8A7C]/50 h-[880px] p-4 w-[330px] mx-auto">
+      <div class="pose-slot mb-4">
+        <img class="pose-image w-full h-60 object-cover" />
+      </div>
+      <div class="pose-slot mb-4">
+        <img class="pose-image w-full h-60 object-cover" />
+      </div>
+      <div class="pose-slot">
+        <img class="pose-image w-full h-60 object-cover" />
+      </div>
+      <div class="text-center text-white mt-4 font-serif">
+        <h2 class="text-xl italic">PosePix</h2>
+        <p id="dateText-3"></p>
+      </div>
+    </div>
+
+    <!-- 4 Poses -->
+    <div id="pose-4" class="hidden bg-[#9D8A7C]/50 h-[1150px] p-4 w-[330px] mx-auto">
+      <div class="pose-slot mb-4">
+        <img class="pose-image w-full h-60 object-cover" />
+      </div>
+      <div class="pose-slot mb-4">
+        <img class="pose-image w-full h-60 object-cover" />
+      </div>
+      <div class="pose-slot mb-4">
+        <img class="pose-image w-full h-60 object-cover" />
+      </div>
+      <div class="pose-slot">
+        <img class="pose-image w-full h-60 object-cover" />
+      </div>
+      <div class="text-center text-white mt-4 font-serif">
+        <h2 class="text-xl italic">PosePix</h2>
+        <p id="dateText-4"></p>
+      </div>
+    </div>
+
+    <!-- 6 Poses -->
+    <div id="pose-6" class="hidden bg-[#9D8A7C]/50 h-[770px] p-4 w-[530px] mx-auto">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="pose-slot">
+          <img class="pose-image w-full h-52 object-cover" />
+        </div>
+        <div class="pose-slot">
+          <img class="pose-image w-full h-52 object-cover" />
+        </div>
+        <div class="pose-slot">
+          <img class="pose-image w-full h-52 object-cover" />
+        </div>
+        <div class="pose-slot">
+          <img class="pose-image w-full h-52 object-cover" />
+        </div>
+        <div class="pose-slot">
+          <img class="pose-image w-full h-52 object-cover" />
+        </div>
+        <div class="pose-slot">
+          <img class="pose-image w-full h-52 object-cover" />
+        </div>
+      </div>
+      <div class="text-center text-white mt-4 font-serif">
+        <h2 class="text-xl italic">PosePix</h2>
+        <p id="dateText-6"></p>
+      </div>
+    </div>
+
+    <div>
+      <a href="posePix.html">
+        <button 
+        class="px-6 py-2 bg-red-800 rounded-lg hover:bg-red-600 transition ">
+        Next
+      </button>
+      </a>
+    </div>
+    </div>
+
+  </main>
+
+  <!-- ✅ Script -->
+  <script src="./js/camera.js"></script>
+
+</body>
+</html>
+

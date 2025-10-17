@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>layout</title>
+
+  <!-- ✅ Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+  <style>
+    .pinyon-script-regular {
+    font-family: "Pinyon Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    }
+</style>
+
+</head>
+<body class="min-h-screen bg-[url('/static/bg1.png')] text-white bg-cover bg-center bg-no-repeat">
+
+  <!-- ✅ Navbar -->
+  <header class="flex justify-between items-center px-6 py-4 bg-white shadow">
+    <div class="text-xl font-bold text-[#1C2E4A]">📸PosePix</div>
+    <nav>
+      <a href="/" class="text-gray-700 hover:text-[#1C2E4A] font-medium">Home</a>
+    </nav>
+  </header>
+
+  <div class="items-center justify-center mt-20 text-center">
+    <h3 class="pinyon-script-regular text-4xl font-bold">Choose how many poses you want to capture.</h3>
+  </div>
+
+  <!-- ✅ Layouts Section -->
+  <main class="flex justify-center items-center py-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+      <!-- Layout 1 -->
+      <div onclick="goToPose(2)" class="bg-white/40 rounded-xl shadow-md overflow-hidden w-32 md:w-40 h-[300px] transform transition duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer">
+        <img src="/static/2grid.png" alt="Layout 1" class="w-full h-auto object-cover">
+        <div class="py-1 text-center">
+          <p class="text-gray-800 text-xs">2 Pose</p>
+        </div>
+      </div>
+
+      <!-- Layout 2 -->
+      <div onclick="goToPose(3)" class="bg-white/40 rounded-xl shadow-md overflow-hidden w-32 md:w-40 transform transition duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer">
+        <img src="/static/3grid.png" alt="Layout 2" class="w-full h-auto object-cover">
+        <div class="py-3 text-center">
+          <p class="text-gray-800 text-xs">3 Pose</p>
+        </div>
+      </div>
+
+      <!-- Layout 3 -->
+      <div onclick="goToPose(4)" class="bg-white/40 rounded-xl shadow-md overflow-hidden w-32 md:w-40 transform transition duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer">
+        <img src="/static/4grid.png" alt="Layout 3" class="w-full h-auto object-cover">
+        <div class="py-2 text-center">
+          <p class="text-gray-800 text-xs">4 Pose</p>
+        </div>
+      </div>
+
+      <!-- Layout 4 -->
+      <div onclick="goToPose(6)" class="bg-white/40 rounded-xl shadow-md overflow-hidden w-32 md:w-40 max-h-60 transform transition duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer">
+        <img src="/static/6grid.png" alt="Layout 4" class="w-full h-auto object-cover">
+        <div class="py-3 text-center">
+          <p class="text-gray-800 text-xs">6 Pose</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    function goToPose(count){
+      window.location.href = `camera.html?count=${count}`;
+    }
+  </script>
+
+</body>
+</html>
