@@ -5,11 +5,13 @@ It supports **mobile and desktop usage** with backend integration for **Cloudina
 
 ## 🚀 Features
 
-- 🎥 **Live Camera Preview** using WebRTC  
-- 📷 **Capture Photos** instantly with one click, double click to retake picture
-- 🎨 **Add & Move Stickers** freely on the photo  
-- 🗑️ **Double-click Stickers to Remove**  
-- 💾 **Download Final Pose Card** as a PNG or PDF  
+- 📸 **Capture Photos:** Take pictures directly from your webcam or mobile camera.
+- 🔁 **Retake Option:** Instantly retake your photo if you’re not satisfied — no need to refresh the page.
+- 🎨 **Custom Background Colours:** Choose from pre-set colours or pick your own custom colour.
+- 💖 **Stickers:** Add fun stickers to personalise your pose card.
+- 🖐️ **Drag & Drop Stickers:** Move stickers freely on your pose card for creative placement.
+- 🗑️ **Remove Stickers:** Double-click on any sticker to remove it.
+- 💾 **Download Pose Card:** Save your final pose card as a PDF.
 - ☁️ **Upload Captured Photos to Cloudinary**  
 - 🧠 **MongoDB Integration** for image data storage
 
