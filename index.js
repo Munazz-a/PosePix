@@ -35,7 +35,5 @@ app.get('/demo', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'demo.html'));
 })
 
-app.listen(3000, () => {
-    console.log('Working Fine!!');
-})
+module.exports = app;
 
