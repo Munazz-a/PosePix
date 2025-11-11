@@ -6,8 +6,8 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.json({ limit : "10mb" }));
 const mongoose = require('mongoose');
 
-app.use('/static', express.static('img'));
-app.use(express.static('public'));
+app.use('/static', express.static(path.join(__dirname, 'img')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
@@ -35,5 +35,10 @@ app.get('/demo', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'demo.html'));
 })
 
-module.exports = app;
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+}
 
