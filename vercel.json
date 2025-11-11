@@ -6,6 +6,5 @@
   "routes": [
     { "src": "/static/(.*)", "dest": "/img/$1" },
     { "src": "/(.*)", "dest": "/index.js" }
-  ],
-  "includeFiles": "img/**"
+  ]
 }
