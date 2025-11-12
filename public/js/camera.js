@@ -118,9 +118,14 @@ function takePhoto(slotIndex = null){
     
 const isRetake = retakeInfo && retakeInfo.index === slotIndex;
 const method = retakeInfo ? "PUT" : "POST";
+
+const baseURL = typeof window !== "undefined" && window.location.origin
+? window.location.origin
+: "http://localhost:3000";
+
 const url = retakeInfo
-  ? `http://localhost:3000/api/photos/${retakeInfo.id}`
-  : "http://localhost:3000/api/photos";
+  ? `${baseURL}/api/photos/${retakeInfo.id}`
+  : `${baseURL}/api/photos`;
 
 fetch(url, {
   method,
