@@ -4,7 +4,10 @@ let poseCard = null;
 
     async function loadGallery(){
         try{
-            const res = await fetch(`http://localhost:3000/api/photos?sessionId=${sessionId}`)
+            const baseURL = typeof window !== "undefined" && window.location.origin
+            ? window.location.origin
+            : "http://localhost3000";
+            const res = await fetch(`${baseURL}/api/photos?sessionId=${sessionId}`)
             const data = await res.json();
 
             if(data.Success && data.photos.length > 0){
