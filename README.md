@@ -3,6 +3,9 @@
 PosePix is a web-based photo booth application that lets users **capture photos directly from the browser**, apply **stickers or poses**, and **download or save** the final image.  
 It supports **mobile and desktop usage** with backend integration for **Cloudinary uploads and MongoDB storage**.
 
+## 🚀 Live Demo
+[![Live Demo](https://img.shields.io/badge/Live%20Site-PosePix-blue?style=for-the-badge)](https://pose-pix.vercel.app/)
+
 ## 🚀 Features
 
 - 📸 **Capture Photos:** Take pictures directly from your webcam or mobile camera.
